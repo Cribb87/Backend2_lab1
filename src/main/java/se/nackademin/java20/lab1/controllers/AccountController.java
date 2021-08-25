@@ -11,7 +11,7 @@ public class AccountController {
     private AccountService accountService;
 
     @PostMapping(path = "/create")
-    public @ResponseBody String createAccount (Account account) {
+    public String createAccount (@RequestBody Account account) {
         accountService.saveAccount(account);
         return "Account created";
     }
