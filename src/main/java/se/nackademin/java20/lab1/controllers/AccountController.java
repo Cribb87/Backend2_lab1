@@ -37,4 +37,11 @@ public class AccountController {
         return accountService.getAllAccounts();
     }
 
+    @PostMapping(path = "/deposit/{id}/{amount}")
+    public String depositIntoAccount(@PathVariable long id, @PathVariable double amount) {
+        Account account = accountService.findAccountById(id);
+        account.deposit(amount);
+        accountService.saveAccount(account);
+        return "Success.";
+    }
 }

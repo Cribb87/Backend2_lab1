@@ -5,6 +5,7 @@ import se.nackademin.java20.lab1.models.Account;
 import se.nackademin.java20.lab1.repositories.AccountRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -18,5 +19,9 @@ public class AccountService {
 
     public Account saveAccount(Account account) {
         return repository.save(account);
+    }
+
+    public Account findAccountById(long id) {
+        return repository.getById(id);
     }
 }

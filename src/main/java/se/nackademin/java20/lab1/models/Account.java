@@ -22,11 +22,11 @@ public class Account {
 
     public Account(){}
 
-    private void deposit(int amount){
+    public void deposit(double amount){
         this.balance += amount;
     }
 
-    private void withdrawal(int amount){
+    public void withdrawal(double amount){
         this.balance -= amount;
     }
 
