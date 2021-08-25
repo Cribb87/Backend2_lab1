@@ -19,4 +19,8 @@ public class AccountService {
     public Account saveAccount(Account account) {
         return repository.save(account);
     }
+
+    public Account findAccountById(long id) {
+        return repository.getById(id);
+    }
 }

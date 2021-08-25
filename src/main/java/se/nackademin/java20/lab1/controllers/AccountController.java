@@ -37,4 +37,27 @@ public class AccountController {
         return accountService.getAllAccounts();
     }
 
+    @PostMapping(path = "/deposit/{id}/{amount}")
+    public String depositIntoAccount(@PathVariable long id, @PathVariable double amount) {
+        Account account = accountService.findAccountById(id);
+        account.deposit(amount);
+        accountService.saveAccount(account);
+        return "Success.";
+    }
+
+    @PostMapping(path = "/withdraw/{id}/{amount}")
+    public String withdrawFromAccount(@PathVariable long id, @PathVariable double amount) {
+        Account account = accountService.findAccountById(id);
+        String messageToReturn;
+        if (account.getBalance() < amount) {
+            messageToReturn = "You can't withdraw " + amount + " since your balance is " + account.getBalance();
+        }
+        else {
+            account.withdraw(amount);
+            accountService.saveAccount(account);
+            messageToReturn = "Success.";
+        }
+       
+        return messageToReturn;
+    }
 }
