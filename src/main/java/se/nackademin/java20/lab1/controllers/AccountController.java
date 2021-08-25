@@ -19,15 +19,14 @@ public class AccountController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(path = "/create")
-    public String createAccount (@RequestBody Account account) {
-        //Kan ej hämta kund från ett konto som inte finns. Hur gör vi?
-        //Måste leta efter användaren i databasen via användarens id på något annat sätt
-        User user = userService.findUserById(account.getUser().getId());
-        if(user == null){
-            return "User doesn't exist";
+    @PostMapping(path = "/create/{user_id}/{balance}")
+    public String createAccount (@PathVariable Long userId, @PathVariable double balance) {
+        User user = userService.findUserById(userId);
+        if (user == null) {
+            return "That user does not exist";
         }
         else {
+            Account account = new Account(user, balance);
             accountService.saveAccount(account);
             return "Account created";
         }
