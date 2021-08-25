@@ -1,19 +1,14 @@
 package se.nackademin.java20.lab1.services;
-
-import se.nackademin.java20.lab1.models.Account;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import se.nackademin.java20.lab1.models.User;
 import se.nackademin.java20.lab1.repositories.UserRepository;
 
-/**
- * Created by Christoffer Grännby
- * Date: 2021-08-25
- * Time: 10:15
- * Project: Övningsuppgifter
- * Copyright: MIT
- */
+@RequiredArgsConstructor
+@Service
 public class UserService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public User saveUser(User user) {
         return userRepository.save(user);
