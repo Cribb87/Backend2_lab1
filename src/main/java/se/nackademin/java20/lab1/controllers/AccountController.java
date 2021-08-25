@@ -44,4 +44,20 @@ public class AccountController {
         accountService.saveAccount(account);
         return "Success.";
     }
+
+    @PostMapping(path = "/withdraw/{id}/{amount}")
+    public String withdrawFromAccount(@PathVariable long id, @PathVariable double amount) {
+        Account account = accountService.findAccountById(id);
+        String messageToReturn;
+        if (account.getBalance() < amount) {
+            messageToReturn = "You can't withdraw " + amount + " since your balance is " + account.getBalance();
+        }
+        else {
+            account.withdraw(amount);
+            accountService.saveAccount(account);
+            messageToReturn = "Success.";
+        }
+       
+        return messageToReturn;
+    }
 }
