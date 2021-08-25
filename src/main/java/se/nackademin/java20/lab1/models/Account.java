@@ -34,15 +34,4 @@ public class Account {
         }
     }
 
-    public double getBalance() {
-        return balance;
-    }
-
-    public long getAccountId() {
-        return id;
-    }
-
-    public User getUserId() {
-        return userId;
-    }
 }
