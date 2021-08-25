@@ -19,7 +19,7 @@ public class AccountController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(path = "/create/{user_id}/{balance}")
+    @PostMapping(path = "/create/{userId}/{balance}")
     public String createAccount (@PathVariable Long userId, @PathVariable double balance) {
         User user = userService.findUserById(userId);
         if (user == null) {
