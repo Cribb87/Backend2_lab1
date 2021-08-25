@@ -10,13 +10,13 @@ public class Account {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
-    private User userId;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     private double balance;
 
     public Account(User userId, double balance){
-        this.userId = userId;
+        this.user = userId;
         this.balance = balance;
     }
 
@@ -34,4 +34,15 @@ public class Account {
         }
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
 }
