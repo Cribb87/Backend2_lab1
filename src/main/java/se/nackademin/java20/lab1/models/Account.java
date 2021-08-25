@@ -6,17 +6,17 @@ import javax.persistence.*;
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "userId", referencedColumnName = "id")
-    private User userId;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     private double balance;
 
     public Account(User userId, double balance){
-        this.userId = userId;
+        this.user = userId;
         this.balance = balance;
     }
 
@@ -27,11 +27,18 @@ public class Account {
     }
 
     private void withdrawal(int amount){
-        if (balance < 0) {
-            System.out.println("You can't withdraw " + amount + "\nHere is your current balance: " + balance);
-        } else {
-            this.balance -= amount;
-        }
+        this.balance -= amount;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
 }
