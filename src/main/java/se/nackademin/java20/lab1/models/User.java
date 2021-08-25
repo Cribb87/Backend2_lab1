@@ -20,15 +20,4 @@ public class User {
         this.age = age;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
 }

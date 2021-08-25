@@ -1,15 +1,18 @@
 package se.nackademin.java20.lab1.services;
-
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import se.nackademin.java20.lab1.models.Account;
 import se.nackademin.java20.lab1.repositories.AccountRepository;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class AccountService {
 
-    private AccountRepository repository;
+
+    private final AccountRepository repository;
+
 
     public List<Account> getAllAccounts() {
         return repository.findAll();

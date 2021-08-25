@@ -27,21 +27,11 @@ public class Account {
     }
 
     private void withdrawal(int amount){
-        this.balance -= amount;
         if (balance < 0) {
             System.out.println("You can't withdraw " + amount + "\nHere is your current balance: " + balance);
+        } else {
+            this.balance -= amount;
         }
     }
 
-    public double getBalance() {
-        return balance;
-    }
-
-    public long getAccountId() {
-        return id;
-    }
-
-    public User getUserId() {
-        return userId;
-    }
 }
