@@ -8,7 +8,7 @@ import se.nackademin.java20.lab1.services.AccountService;
 @RequestMapping(path = "/account")
 public class AccountController {
 
-    private final AccountService accountService;
+    private AccountService accountService;
 
     @PostMapping(path = "/create")
     public @ResponseBody String createAccount (Account account) {

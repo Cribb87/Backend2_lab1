@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class AccountService {
 
-    private final AccountRepository repository;
+    private AccountRepository repository;
 
     public List<Account> getAllAccounts() {
         return repository.findAll();
