@@ -57,7 +57,6 @@ public class AccountController {
             accountService.saveAccount(account);
             messageToReturn = "Success.";
         }
-       
         return messageToReturn;
     }
 }
