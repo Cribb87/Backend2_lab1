@@ -1,31 +1,21 @@
 package se.nackademin.java20.lab1.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
-/**
- * Created by Christoffer Grännby
- * Date: 2021-08-25
- * Time: 09:30
- * Project: Övningsuppgifter
- * Copyright: MIT
- */
 @Entity
 public class Account {
 
     @Id
-    @GeneratedValue
-    private long userId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    @Id
-    @GeneratedValue
-    private long accountNumber;
+    @ManyToOne
+    @JoinColumn(name = "userId", referencedColumnName = "id")
+    private User userId;
 
     private double balance;
 
-    public Account(long userId, double balance){
+    public Account(User userId, double balance){
         this.userId = userId;
         this.balance = balance;
     }
@@ -38,17 +28,20 @@ public class Account {
 
     private void withdrawal(int amount){
         this.balance -= amount;
+        if (balance < 0) {
+            System.out.println("You can't withdraw " + amount + "\nHere is your current balance: " + balance);
+        }
     }
 
     public double getBalance() {
         return balance;
     }
 
-    public long getAccountNumber() {
-        return accountNumber;
+    public long getAccountId() {
+        return id;
     }
 
-    public long getUserId() {
+    public User getUserId() {
         return userId;
     }
 }
