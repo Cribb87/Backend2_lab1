@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  mysql:
+    image: mysql:8.0.26
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: lab1
+    ports:
+      - "3307:3306"
+  lab2:
+    image: mysql
+    environment:
+      MYSQL_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: lab1
+      DB_USER: root
+      DB_PASSWORD: password
+      SPRING_PROFILES_ACTIVE: prod
+    ports:
+    - "8080:8080"
+    depends_on:
+      - mysql
