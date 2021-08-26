@@ -6,8 +6,16 @@
 </head>
 <body>
 
-<p th:text="'UserID:' + ${userId} + '!'" />
-<p th:text="'AccountID:' + ${accountId} + '!'" />
+<h1>Goliath National Bank</h1>
+
+<p th:text="'UserID:' + ${userId}"></p>
+<p th:text="'AccountID:' + ${accountId}"></p>
+<a href="/account/deposit/">
+    <button>Deposit</button>
+</a>
+<a href="/account/withdraw/">
+    <button>Withdraw</button>
+</a>
 
 
 </body>
