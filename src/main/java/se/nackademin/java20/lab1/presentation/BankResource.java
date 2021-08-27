@@ -1,4 +1,4 @@
-package se.nackademin.java20.lab1.presentation.tabort;
+package se.nackademin.java20.lab1.presentation;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

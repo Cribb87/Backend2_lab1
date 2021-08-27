@@ -1,5 +1,7 @@
 package se.nackademin.java20.lab1.models;
 
+import net.bytebuddy.implementation.bytecode.Throw;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,8 +17,8 @@ public class Account {
 
     private double balance;
 
-    public Account(User userId, double balance){
-        this.user = userId;
+    public Account(User user, double balance){
+        this.user = user;
         this.balance = balance;
     }
 
@@ -27,7 +29,12 @@ public class Account {
     }
 
     public void withdraw(double amount){
-        this.balance -= amount;
+        if (balance > amount){
+            this.balance -= amount;
+        } else {
+            throw new IllegalStateException();
+        }
+
     }
 
     public Long getId() {
