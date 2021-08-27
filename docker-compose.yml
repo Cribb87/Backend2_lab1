@@ -19,6 +19,10 @@ services:
 #      DB_PASSWORD: password
 #      SPRING_PROFILES_ACTIVE: prod
     ports:
-    - "8081:8081"
+      - "8081:8081"
     links:
       - mysql
+  lab3:
+    image: daneidmark/risk:0.0.1
+    ports:
+      - "8082:8080"
