@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AccountDeserialized {
 
+    //Tillhör minilabb
     private final String json = "{\"balance\":0,\"holder\":\"Kalle\"\n}";
 
     private final int balance;
