@@ -25,6 +25,7 @@ public class lab3_test {
         ResponseEntity<RiskAssessmentDto> forEntity = restTemplate.getForEntity("http://localhost:8082/risk/dan", RiskAssessmentDto.class);
 
         RiskAssessmentDto risk = forEntity.getBody();
+        System.out.println(risk.isPass());
         assertEquals(RiskAssessmentDto.class, risk.getClass());
     }
 

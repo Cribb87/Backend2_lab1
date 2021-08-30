@@ -11,22 +11,8 @@ public class RiskAssessmentDto {
         this.pass = pass;
     }
 
-    public static RiskAssessmentDto pass() {
-        return new RiskAssessmentDto(true);
-    }
-
-    public static RiskAssessmentDto fail() {
-        return new RiskAssessmentDto(false);
-    }
-
     public boolean isPass() {
         return pass;
     }
 
-    @Override
-    public String toString() {
-        return "RiskAssessmentDto{" +
-                "pass=" + pass +
-                '}';
-    }
 }
