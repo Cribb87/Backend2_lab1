@@ -1,4 +1,4 @@
-package se.nackademin.java20.lab1.presentation;
+package se.nackademin.java20.lab1.risk;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
